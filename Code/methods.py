@@ -33,6 +33,7 @@ def combine_subtours_usingGreedy(n,anslstdb,DPAdb):
     anslstdb.sort(key = operator.itemgetter(1))
     for anslst in anslstdb:
         i=anslst[0]
+        print(i)
         if ival+i == ival^i :
             flst.append(i)
             presentOrder=getOrder(anslst[2],anslst[0],n+1,DPAdb)
@@ -46,6 +47,7 @@ def combine_subtours_usingGreedy(n,anslstdb,DPAdb):
 def combine_subtours(n,DPBdb,DPAdb):
     n-=1
     for i in range(1,2**n):
+        print(i)
         for j in range(1,i) :
             if i+j == i^j and DPBdb[i][0]!=None and DPBdb[j][0]!=None:
                 combineDistance=DPBdb[i][0]+DPBdb[j][0]
@@ -111,9 +113,10 @@ def CVRP_sol_by_DP(n,edges,demand,capacity,greedy=False):
     anslstdb=[]
 
     for i in range(maxmusk):
-        f3=open("Status.txt","w")
+        '''f3=open("Status.txt","w")
         f3.write(str(i))
-        f3.close
+        f3.close'''
+        print(i)
         #check if the groups total weight is a valid one.
 
         if grpwt[i]==None or grpwt[i]>capacity:
